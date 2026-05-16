@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is an Au Pair Right for Your Family? | A MomGetsBusy Resource</title>
+<meta name="description" content="A free 3-minute fit quiz + cost calculator for moms considering an au pair. Find out if it's the right call for your family. From MomGetsBusy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F0;
+    --cream-deep: #F2EBDF;
+    --ink: #2D2520;
+    --ink-soft: #5C4F45;
+    --terracotta: #B5654A;
+    --terracotta-deep: #94503A;
+    --sage: #8A9A7B;
+    --gold: #D4A574;
+    --line: #E5DBCB;
+    --shadow: 0 4px 20px rgba(45, 37, 32, 0.08);
+    --shadow-lift: 0 12px 40px rgba(45, 37, 32, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 0 4rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+
+  .eyebrow {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+    font-weight: 400;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    gap: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--cream-deep);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-meta span::before {
+    content: '◆ ';
+    color: var(--gold);
+    margin-right: 0.35rem;
+  }
+
+  /* SECTIONS */
+  .section {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-number {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* QUIZ */
+  .question {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .question.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-counter {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--terracotta);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .question-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .option {
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--cream);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.98rem;
+    color: var(--ink);
+    text-align: left;
+    font-family: inherit;
+    width: 100%;
+  }
+
+  .option:hover {
+    border-color: var(--terracotta);
+    background: white;
+    transform: translateX(4px);
+  }
+
+  .option.selected {
+    border-color: var(--terracotta);
+    background: var(--terracotta);
+    color: white;
+  }
+
+  .progress {
+    height: 4px;
+    background: var(--line);
+    border-radius: 999px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: var(--terracotta);
+    width: 0%;
+    transition: width 0.4s ease;
+    border-radius: 999px;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .btn-text {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+  }
+
+  .btn-text:hover { color: var(--terracotta); }
+  .btn-text:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* RESULTS */
+  .result-card {
+    text-align: center;
+    padding: 2rem 0;
+    display: none;
+  }
+
+  .result-card.active { display: block; }
+
+  .result-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .result-badge.strong { background: var(--sage); color: white; }
+  .result-badge.maybe { background: var(--gold); color: var(--ink); }
+  .result-badge.consider { background: var(--terracotta); color: white; }
+
+  .result-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2.25rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .result-score {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .result-body {
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .result-body p { margin-bottom: 1rem; }
+
+  /* CALCULATOR */
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .calc-grid { grid-template-columns: 1fr; }
+  }
+
+  .field label {
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--cream);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+
+  .field input:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--terracotta);
+    background: white;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: var(--terracotta);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .calc-result {
+    display: none;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .calc-result.active { display: block; }
+
+  .number-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .number-row { grid-template-columns: 1fr; }
+  }
+
+  .number-card {
+    background: var(--cream);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border-left: 3px solid var(--terracotta);
+  }
+
+  .number-card.highlight { border-left-color: var(--sage); }
+  .number-card.warn { border-left-color: var(--gold); }
+
+  .number-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .number-value {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .savings-banner {
+    background: var(--sage);
+    color: white;
+    padding: 1.75rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .savings-banner.cost {
+    background: var(--terracotta);
+  }
+
+  .savings-banner .label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
+
+  .savings-banner .amount {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .savings-banner .note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    max-width: 380px;
+    margin: 0.5rem auto 0;
+  }
+
+  .what-you-get {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--cream-deep);
+    border-radius: 16px;
+  }
+
+  .what-you-get h4 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+
+  .what-you-get ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .what-you-get li {
+    padding: 0.4rem 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .what-you-get li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 24px;
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-section h3 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cta-section p {
+    color: rgba(250, 246, 240, 0.75);
+    max-width: 460px;
+    margin: 0 auto 1.5rem;
+    font-size: 1rem;
+  }
+
+  .cta-list {
+    list-style: none;
+    text-align: left;
+    max-width: 380px;
+    margin: 0 auto 2rem;
+    padding: 1.5rem;
+    background: rgba(250, 246, 240, 0.06);
+    border-radius: 12px;
+  }
+
+  .cta-list li {
+    padding: 0.4rem 0 0.4rem 1.75rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--cream);
+  }
+
+  .cta-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .price {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--gold);
+  }
+
+  .price-note {
+    color: rgba(250, 246, 240, 0.6);
+    font-size: 0.9rem;
+  }
+
+  .btn-cta {
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    padding: 1.1rem 2.5rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-cta:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(212, 165, 116, 0.4);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    color: var(--terracotta);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  .disclaimer {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  /* AUTHOR SIG */
+  .signature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    color: var(--ink-soft);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">A MomGetsBusy Resource</div>
+    <h1>Is an au pair <em>actually</em> the right call for your family?</h1>
+    <p class="hero-sub">A 3-minute fit quiz and personalized cost calculator. Built for moms who are tired of guessing.</p>
+    <div class="hero-meta">
+      <span>12-Question Quiz</span>
+      <span>Personalized Results</span>
+      <span>Real Numbers</span>
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION -->
+  <section class="section" id="quiz-section">
+    <div class="section-header">
+      <div class="section-number">Part One</div>
+      <h2>The Fit Quiz</h2>
+      <p>Be honest. Nobody sees this but you.</p>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Questions get injected here -->
+    <div id="quiz-content"></div>
+
+    <!-- Quiz Results -->
+    <div class="result-card" id="quiz-result">
+      <div class="result-badge" id="result-badge"></div>
+      <h3 class="result-title" id="result-title"></h3>
+      <div class="result-score" id="result-score"></div>
+      <div class="result-body" id="result-body"></div>
+      <button class="btn-text" onclick="restartQuiz()">↺ Retake the quiz</button>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section" id="calculator">
+    <div class="section-header">
+      <div class="section-number">Part Two</div>
+      <h2>The Real Cost Calculator</h2>
+      <p>Stop Googling averages. See what an au pair would actually cost <em>your</em> family.</p>
+    </div>
+
+    <div class="calc-grid">
+      <div class="field">
+        <label for="state">Your state</label>
+        <select id="state">
+          <option value="standard">Any state except CA or MA</option>
+          <option value="ca">California</option>
+          <option value="ma">Massachusetts</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="kids">Number of children</label>
+        <select id="kids">
+          <option value="1">1 child</option>
+          <option value="2" selected>2 children</option>
+          <option value="3">3 children</option>
+          <option value="4">4+ children</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="current">Current monthly childcare cost ($)</label>
+        <input type="number" id="current" placeholder="e.g. 2400" value="2400">
+      </div>
+      <div class="field">
+        <label for="hours">Childcare hours needed per week</label>
+        <select id="hours">
+          <option value="20">Under 20 hours</option>
+          <option value="30">20-30 hours</option>
+          <option value="45" selected>30-45 hours</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <button class="btn-primary" onclick="calculateCost()">Show me the numbers →</button>
+    </div>
+
+    <div class="calc-result" id="calc-result">
+      <div class="number-row">
+        <div class="number-card">
+          <div class="number-label">Estimated Au Pair Annual Cost</div>
+          <div class="number-value" id="aupair-cost">$0</div>
+        </div>
+        <div class="number-card warn">
+          <div class="number-label">Your Current Annual Cost</div>
+          <div class="number-value" id="current-cost">$0</div>
+        </div>
+      </div>
+
+      <div class="savings-banner" id="savings-banner">
+        <div class="label" id="savings-label">Annual Savings</div>
+        <div class="amount" id="savings-amount">$0</div>
+        <div class="note" id="savings-note"></div>
+      </div>
+
+      <div class="what-you-get">
+        <h4>What you'd get back</h4>
+        <ul id="what-you-get-list"></ul>
+      </div>
+
+      <p class="disclaimer">These are estimates based on 2026 industry averages across major US au pair agencies. Your actual costs will vary based on agency, state, and household-specific factors like food and transportation.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-eyebrow">If you scored "Strong Fit"</div>
+    <h3>You don't need <em>more information</em>.<br>You need the actual <em>templates.</em></h3>
+    <p>The Host Family Vault is everything I wish I'd had before our au pair arrived — the interview questions, the contract, the first-week schedule, the welcome checklist. Edit and use.</p>
+
+    <ul class="cta-list">
+      <li>Au Pair Interview Question Bank (26 Q's)</li>
+      <li>Host Family Contract Template (Google Doc)</li>
+      <li>First Week Schedule Templates (3 ages)</li>
+      <li>Au Pair Room Welcome Checklist</li>
+      <li>Weekly Check-In Conversation Script</li>
+      <li>Advanced Cost Calculator (Google Sheet)</li>
+    </ul>
+
+    <div class="price-row">
+      <span class="price">$17</span>
+      <span class="price-note">one-time · instant access</span>
+    </div>
+
+    <a href="https://stan.store/momgetsbusy/p/the-vault-onms4xrv" target="_blank" rel="noopener" class="btn-cta" id="vault-cta">Get the Host Family Vault →</a>
+  </section>
+
+  <footer>
+    <p>A <a href="#">MomGetsBusy</a> Resource · @momgetsbusy</p>
+    <div class="signature">
+      <span>— from one mom doing her best, to another</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const questions = [
+  {
+    q: "How many hours of childcare do you need per week?",
+    options: [
+      { text: "Fewer than 20 hours", pts: 1 },
+      { text: "20 to 30 hours", pts: 3 },
+      { text: "30 to 45 hours", pts: 5 },
+      { text: "More than 45 hours per week", pts: 2 }
+    ]
+  },
+  {
+    q: "How many children will the au pair help care for?",
+    options: [
+      { text: "1 child", pts: 3 },
+      { text: "2 children", pts: 5 },
+      { text: "3 or more children", pts: 5 },
+      { text: "Currently expecting", pts: 3 }
+    ]
+  },
+  {
+    q: "What's the age of your youngest child?",
+    options: [
+      { text: "Under 3 months old", pts: 1 },
+      { text: "3 to 24 months", pts: 4 },
+      { text: "2 to 5 years", pts: 5 },
+      { text: "6 years or older", pts: 4 }
+    ]
+  },
+  {
+    q: "Do you have space for an au pair to live in your home?",
+    options: [
+      { text: "Yes, a private room with private bath", pts: 5 },
+      { text: "Yes, a private room with shared bath", pts: 4 },
+      { text: "We could rearrange to make it work", pts: 3 },
+      { text: "No, we don't have the space", pts: 1 }
+    ]
+  },
+  {
+    q: "How aligned is your partner on hosting a live-in caregiver?",
+    options: [
+      { text: "We're both excited", pts: 5 },
+      { text: "Mostly aligned, with some questions", pts: 4 },
+      { text: "One of us is hesitant", pts: 2 },
+      { text: "We haven't really discussed it yet", pts: 1 },
+      { text: "I'm a solo parent (my call alone)", pts: 4 }
+    ]
+  },
+  {
+    q: "How do you feel about welcoming someone from a different culture into your home?",
+    options: [
+      { text: "Genuinely excited about it", pts: 5 },
+      { text: "Comfortable with it", pts: 4 },
+      { text: "A little nervous but open", pts: 3 },
+      { text: "It feels intimidating", pts: 1 }
+    ]
+  },
+  {
+    q: "What are you currently spending on childcare each month?",
+    options: [
+      { text: "I'm doing it all myself (and burning out)", pts: 5 },
+      { text: "Under $1,500", pts: 2 },
+      { text: "$1,500 to $2,500", pts: 4 },
+      { text: "$2,500 or more", pts: 5 }
+    ]
+  },
+  {
+    q: "How unpredictable is your work schedule? (early mornings, evenings, occasional weekends)",
+    options: [
+      { text: "Very — my hours move all the time", pts: 5 },
+      { text: "Sometimes — I need flexibility", pts: 5 },
+      { text: "Mostly standard 9-5", pts: 3 },
+      { text: "I work from home, hours flexible", pts: 4 }
+    ]
+  },
+  {
+    q: "How do you feel about onboarding and managing someone?",
+    options: [
+      { text: "I love mentoring and teaching", pts: 5 },
+      { text: "I can do it — it's part of the deal", pts: 4 },
+      { text: "I'd rather not, but I'll try", pts: 2 },
+      { text: "I want someone fully formed who needs zero guidance", pts: 1 }
+    ]
+  },
+  {
+    q: "How important is family privacy to you?",
+    options: [
+      { text: "We're a 'more the merrier' household", pts: 5 },
+      { text: "We share space comfortably", pts: 4 },
+      { text: "Privacy matters but is workable", pts: 3 },
+      { text: "We strongly value our private space", pts: 1 }
+    ]
+  },
+  {
+    q: "Can your family commit to at least 12 months?",
+    options: [
+      { text: "Yes, easily", pts: 5 },
+      { text: "Yes, with some hesitation", pts: 3 },
+      { text: "Our needs might change in 6 months", pts: 2 },
+      { text: "Probably not", pts: 1 }
+    ]
+  },
+  {
+    q: "What's your biggest reason for considering an au pair?",
+    options: [
+      { text: "Flexibility — daycare hours don't fit our life", pts: 5 },
+      { text: "Cost — current childcare is breaking us", pts: 5 },
+      { text: "Cultural exchange for our kids", pts: 4 },
+      { text: "Honestly, I just need help", pts: 5 }
+    ]
+  }
+];
+
+let currentQ = 0;
+let answers = new Array(questions.length).fill(null);
+
+const quizContent = document.getElementById('quiz-content');
+const progressBar = document.getElementById('progress-bar');
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  const totalQ = questions.length;
+  progressBar.style.width = `${((currentQ) / totalQ) * 100}%`;
+
+  let html = `
+    <div class="question active">
+      <div class="question-counter">Question ${currentQ + 1} of ${totalQ}</div>
+      <div class="question-text">${q.q}</div>
+      <div class="options">
+        ${q.options.map((opt, i) => `
+          <button class="option ${answers[currentQ] === i ? 'selected' : ''}" data-idx="${i}">
+            ${opt.text}
+          </button>
+        `).join('')}
+      </div>
+      <div class="nav">
+        <button class="btn-text" onclick="prevQ()" ${currentQ === 0 ? 'disabled' : ''}>← Previous</button>
+        <button class="btn-text" onclick="nextQ()" id="next-btn" ${answers[currentQ] === null ? 'disabled' : ''}>
+          ${currentQ === totalQ - 1 ? 'See my results →' : 'Next →'}
+        </button>
+      </div>
+    </div>
+  `;
+
+  quizContent.innerHTML = html;
+
+  quizContent.querySelectorAll('.option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.idx);
+      answers[currentQ] = idx;
+      quizContent.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('next-btn').disabled = false;
+      // Auto-advance after short delay
+      setTimeout(() => {
+        if (currentQ < questions.length - 1) {
+          nextQ();
+        } else {
+          showResults();
+        }
+      }, 400);
+    });
+  });
+}
+
+function nextQ() {
+  if (answers[currentQ] === null) return;
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    showResults();
+  }
+}
+
+function prevQ() {
+  if (currentQ > 0) {
+    currentQ--;
+    renderQuestion();
+  }
+}
+
+function showResults() {
+  const totalScore = answers.reduce((sum, ansIdx, qIdx) => {
+    return sum + (ansIdx !== null ? questions[qIdx].options[ansIdx].pts : 0);
+  }, 0);
+
+  const maxScore = 60;
+  progressBar.style.width = '100%';
+
+  let badge, title, body, badgeClass;
+
+  if (totalScore >= 48) {
+    badgeClass = 'strong';
+    badge = 'Strong Fit';
+    title = 'An au pair sounds like a really good call for your family.';
+    body = `
+      <p>Your situation has the hallmarks of a household where the au pair model actually shines: the right number of children, the flexibility need, the space, and the openness to bring someone into your home as a temporary family member rather than as staff.</p>
+      <p>The next thing standing between you and hosting is not more information. It's <strong>execution</strong> — choosing an agency, writing a clear contract, and preparing for the first week. That's exactly what the Vault below was built to help with.</p>
+    `;
+  } else if (totalScore >= 30) {
+    badgeClass = 'maybe';
+    badge = 'Could Work, With Adjustments';
+    title = 'An au pair could work — but a few things need to fall into place first.';
+    body = `
+      <p>You scored in the middle, which usually means one of three things: your partner isn't fully on board yet, your space situation needs solving, or your scheduling needs are a little outside the au pair sweet spot.</p>
+      <p>The good news: these are conversations, not deal-breakers. Get aligned on the variables above, then come back. The Vault below has the contract templates and conversation scripts that handle most of these "in-between" situations.</p>
+    `;
+  } else {
+    badgeClass = 'consider';
+    badge = 'Maybe Not Right Now';
+    title = 'Au pair might not be the right move for this season.';
+    body = `
+      <p>Your score suggests that the practical or relational fit isn't quite there yet. That's not a failure — it's clarity, and clarity is the whole point of this quiz.</p>
+      <p>The au pair model works best when several conditions line up: enough hours of need to make the cost math work, space to host, a 12-month runway, and household readiness to manage someone. If those shift, you can always revisit.</p>
+      <p>In the meantime, the cost calculator below can still help you compare your current setup against other options like part-time nannies or shared care.</p>
+    `;
+  }
+
+  quizContent.innerHTML = '';
+  const result = document.getElementById('quiz-result');
+  document.getElementById('result-badge').textContent = badge;
+  document.getElementById('result-badge').className = `result-badge ${badgeClass}`;
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-score').innerHTML = `Your score: <strong>${totalScore}</strong> out of ${maxScore}`;
+  document.getElementById('result-body').innerHTML = body;
+  result.classList.add('active');
+
+  // Scroll to calculator
+  setTimeout(() => {
+    document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+  }, 600);
+}
+
+function restartQuiz() {
+  currentQ = 0;
+  answers = new Array(questions.length).fill(null);
+  document.getElementById('quiz-result').classList.remove('active');
+  renderQuestion();
+  document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// COST CALCULATOR
+function calculateCost() {
+  const state = document.getElementById('state').value;
+  const kids = parseInt(document.getElementById('kids').value);
+  const current = parseFloat(document.getElementById('current').value) || 0;
+  const hours = parseInt(document.getElementById('hours').value);
+
+  // Annual au pair costs (2026 averages)
+  const agencyFee = 10500;
+  const educationFee = 500;
+  let weeklyStipend = 195.75;
+  if (state === 'ca') weeklyStipend = 440;
+  if (state === 'ma') weeklyStipend = 410;
+  const annualStipend = weeklyStipend * 52;
+
+  // Extras: food, gas, phone, room cost
+  const extras = 4000;
+
+  const totalAuPairCost = Math.round(agencyFee + annualStipend + educationFee + extras);
+  const currentAnnual = current * 12;
+  const difference = currentAnnual - totalAuPairCost;
+
+  document.getElementById('aupair-cost').textContent = '$' + totalAuPairCost.toLocaleString();
+  document.getElementById('current-cost').textContent = '$' + currentAnnual.toLocaleString();
+
+  const banner = document.getElementById('savings-banner');
+  if (difference > 0) {
+    banner.className = 'savings-banner';
+    document.getElementById('savings-label').textContent = 'Estimated Annual Savings';
+    document.getElementById('savings-amount').textContent = '$' + difference.toLocaleString();
+    document.getElementById('savings-note').textContent =
+      `That's roughly $${Math.round(difference / 12).toLocaleString()} back in your monthly budget — plus 45 hours of weekly flexibility.`;
+  } else if (difference === 0) {
+    banner.className = 'savings-banner';
+    document.getElementById('savings-label').textContent = 'Cost-Neutral';
+    document.getElementById('savings-amount').textContent = '$0';
+    document.getElementById('savings-note').textContent =
+      `You'd spend roughly the same — but you'd gain flexibility, evenings, and the cultural exchange.`;
+  } else {
+    banner.className = 'savings-banner cost';
+    document.getElementById('savings-label').textContent = 'Additional Annual Cost';
+    document.getElementById('savings-amount').textContent = '$' + Math.abs(difference).toLocaleString();
+    document.getElementById('savings-note').textContent =
+      `An au pair would cost more upfront — but you'd gain 45 hours of weekly flexible care vs. fixed daycare hours.`;
+  }
+
+  // What you get back list
+  const perKidCost = Math.round(totalAuPairCost / kids);
+  const getBackList = document.getElementById('what-you-get-list');
+  getBackList.innerHTML = `
+    <li><strong>~45 hours per week</strong> of flexible, in-home care (vs. fixed daycare hours)</li>
+    <li><strong>$${perKidCost.toLocaleString()} per child per year</strong> — au pair cost is per family, not per kid</li>
+    <li><strong>Sick-day coverage</strong> — no scrambling when your kid runs a fever</li>
+    <li><strong>Cultural exchange</strong> — your kids grow up with a second language in the house</li>
+    <li><strong>FSA-eligible</strong> — you can use Dependent Care FSA dollars toward this</li>
+  `;
+
+  document.getElementById('calc-result').classList.add('active');
+}
+
+// Initialize
+renderQuestion();
+</script>
+
+</body>
+</html>
